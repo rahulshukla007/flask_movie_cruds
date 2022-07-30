@@ -12,7 +12,7 @@ conn = psycopg2.connect(
         database    = "d87b79k4h2v8ll",
         user        = "tmzuihdcumyntq",
         password    = "4429cf39d83cb78718a7b9e5f7e623835ae603c26e7d187bb15d300be0d73790",
-        port        = "5432"
+        
         )
 
 cur = conn.cursor()
