@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<h2>A movie collection list</h2>
+<h3><a href='/addmovie'> Add Movie </a></h3>
+
+<table style="width:100%">
+  <tr>
+    <th>ID</th>
+    <th>Movie Title</th>
+    <th>Movie Year</th>
+    <th>Update</th>
+    <th>Delete</th>
+
+  </tr>
+
+  {% for mu in movie_list %}
+    <tr>
+        <td>{{mu.movie_id}}</td><br>
+        <td>{{mu.movie_title}}</td><br>
+        <td>{{mu.movie_year}}</td>
+        <td><a href="/updatemovie/{{mu.movie_id}}">Edit</a></td>
+        <td><a href="/deletemovie/{{mu.movie_id}}">Delete</a></td>
+
+    </tr>
+  {% endfor %}
+
+
+</table>
+
+</body>
+</html>
