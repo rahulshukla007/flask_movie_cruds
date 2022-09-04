@@ -1,20 +1,19 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask, request
 from flask import render_template, redirect
 import psycopg2
+load_dotenv()
 
 
-# DATABASE_URL: postgres://tmzuihdcumyntq:4429cf39d83cb78718a7b9e5f7e623835ae603c26e7d187bb15d300be0d73790@ec2-34-235-31-124.compute-1.amazonaws.com:5432/d87b79k4h2v8l
-# heroku config --app movieproject007
 
 conn = psycopg2.connect(
+        host="localhost",
+        database="moviedb",
+        user=os.environ.get('DB_USERNAME'),
+        password=os.environ.get('DB_PASSWORD'))
 
-        host        = "ec2-34-235-31-124.compute-1.amazonaws.com",
-        database    = "d87b79k4h2v8ll",
-        user        = "tmzuihdcumyntq",
-        password    = "4429cf39d83cb78718a7b9e5f7e623835ae603c26e7d187bb15d300be0d73790",
-        
-        )
-
+# Open a cursor to perform database operations
 cur = conn.cursor()
 
 app = Flask(__name__)
